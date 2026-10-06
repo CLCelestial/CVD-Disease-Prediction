@@ -169,10 +169,6 @@ This rewrites `data/cleaned_dataset.csv`, `data/cleaned_selected.csv` and the ED
 
 **This is a student project and is not a medical device. Do not use it for real clinical decisions.**
 
-## Authors
-
-Viraj Sawant and Aryan Kumar, B.Tech Electronics and Telecommunication, K. J. Somaiya School of Engineering. Built for the Machine Learning Lab Internal Assessment 2 (IA2), 2026.
-
 ## Data source
 
 Centers for Disease Control and Prevention (CDC), National Center for Health Statistics (NCHS). National Health and Nutrition Examination Survey, 2021-2023. NHANES data is in the public domain.
