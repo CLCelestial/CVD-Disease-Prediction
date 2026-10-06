@@ -1,0 +1,7 @@
+Rank,Model,AUROC,AUPRC,Precision,Recall,F1,Accuracy,Threshold
+1,Logistic Regression,0.884,0.363,0.342,0.535,0.418,0.881,0.768
+2,Stacking Ensemble (final),0.884,0.393,0.306,0.626,0.411,0.857,0.203
+3,XGBoost,0.881,0.378,0.307,0.615,0.409,0.859,0.64
+4,Random Forest,0.881,0.312,0.29,0.706,0.411,0.839,0.244
+5,LightGBM,0.868,0.333,0.293,0.631,0.4,0.849,0.38
+6,Decision Tree,0.853,0.309,0.255,0.738,0.379,0.808,0.722

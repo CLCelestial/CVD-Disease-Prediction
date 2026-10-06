@@ -1,0 +1,24 @@
+=== Logistic Regression (threshold=0.768) ===
+[[1970  192]
+ [  87  100]]
+
+=== Decision Tree (threshold=0.722) ===
+[[1759  403]
+ [  49  138]]
+
+=== Random Forest (threshold=0.244) ===
+[[1839  323]
+ [  55  132]]
+
+=== XGBoost (threshold=0.640) ===
+[[1902  260]
+ [  72  115]]
+
+=== LightGBM (threshold=0.380) ===
+[[1877  285]
+ [  69  118]]
+
+=== Stacking Ensemble (final) (threshold=0.203) ===
+[[1897  265]
+ [  70  117]]
+

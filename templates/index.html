@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CVD Risk Predictor</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; color: #222; }
+  h1 { font-size: 1.4rem; }
+  form { display: grid; gap: 12px; margin-top: 20px; }
+  label { font-weight: bold; font-size: 0.9rem; }
+  input { padding: 6px 8px; font-size: 1rem; }
+  button { padding: 10px; font-size: 1rem; cursor: pointer; background: #2b6cb0; color: white; border: none; border-radius: 4px; }
+  .result { margin-top: 24px; padding: 16px; border-radius: 6px; }
+  .positive { background: #fed7d7; border: 1px solid #f56565; }
+  .negative { background: #c6f6d5; border: 1px solid #48bb78; }
+</style>
+</head>
+<body>
+  <h1>Cardiovascular Disease (CVD) Risk Predictor</h1>
+  <p>Enter the patient's values for the model's 9 input features. This demo uses a Stacking Classifier (LightGBM + XGBoost + Random Forest, Logistic Regression meta-learner) trained on the NHANES-derived dataset.</p>
+  <form method="POST" action="/predict_form">
+    <div><label>Age (years)</label><input type="number" step="1" name="age" required></div>
+    <div><label>Poverty-Income Ratio (pir)</label><input type="number" step="0.01" name="pir" required></div>
+    <div><label>Waist Circumference (BMXWAIST, cm)</label><input type="number" step="0.1" name="BMXWAIST" required></div>
+    <div><label>Total Cholesterol (TCHOL, mg/dL)</label><input type="number" step="0.1" name="TCHOL" required></div>
+    <div><label>Mean Corpuscular Volume (LBXMCVSI)</label><input type="number" step="0.1" name="LBXMCVSI" required></div>
+    <div><label>Red Cell Distribution Width (LBXRDW, %)</label><input type="number" step="0.1" name="LBXRDW" required></div>
+    <div><label>Platelet Count (LBXPLTSI, 1000 cells/uL)</label><input type="number" step="0.1" name="LBXPLTSI" required></div>
+    <div><label>White Blood Cell Count (LBXWBCSI, 1000 cells/uL)</label><input type="number" step="0.1" name="LBXWBCSI" required></div>
+    <div><label>High-Sensitivity C-Reactive Protein (HSCRP, mg/L)</label><input type="number" step="0.01" name="HSCRP" required></div>
+    <button type="submit">Predict CVD Risk</button>
+  </form>
+
+  {% if result %}
+  <div class="result {{ 'positive' if result.label == 1 else 'negative' }}">
+    <strong>Predicted probability of CVD:</strong> {{ result.probability }}<br>
+    <strong>Predicted class:</strong> {{ 'CVD risk detected' if result.label == 1 else 'No CVD risk detected' }}
+  </div>
+  {% endif %}
+</body>
+</html>
